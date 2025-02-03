@@ -1,15 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, Image, StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ContainerPlaylist from "./components/containerPlaylist/ContainerPlaylist"
 import Recomendado from "./components/Recomendado/Recomendado"
-import { HeaderShownContext } from '@react-navigation/elements';
 import DetailScreen from './screens/detailScreen';
+import CameraScreen from './screens/Camera/Camera';
 
 
 //Creo la view del home
 function HomeScreen() {
+  
+  const navigate =useNavigation()
   return (
     <View style={styles.container}>
          <Text style={styles.text}>Hola Mundo!</Text>
@@ -19,6 +21,8 @@ function HomeScreen() {
         </View>
         <ContainerPlaylist/>
         <Recomendado/>
+        
+        <Button title='Take Photo' onPress={()=>navigate.navigate("Camera")}></Button>
     </View>
   )
 }
@@ -36,6 +40,7 @@ function RootStack() {
     >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Detail" component={DetailScreen} />
+      <Stack.Screen name="Camera" component={CameraScreen} />
     </Stack.Navigator>
   );
 }

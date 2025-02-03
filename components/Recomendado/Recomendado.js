@@ -66,8 +66,6 @@ function Recomendado() {
 
   return (
     <View style={styles.container}>
-        <CameraComp></CameraComp>
-
         <Text style={styles.text}>Recomendaciones</Text>
         <FlatList 
             data={albums}
