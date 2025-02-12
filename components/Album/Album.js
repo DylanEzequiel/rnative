@@ -1,6 +1,5 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native"
 import {useNavigation} from '@react-navigation/native';
-import useStore from "../../zustandStore";
 
 function Album({url,title,description}) {
     

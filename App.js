@@ -6,14 +6,18 @@ import ContainerPlaylist from "./components/containerPlaylist/ContainerPlaylist"
 import Recomendado from "./components/Recomendado/Recomendado"
 import DetailScreen from './screens/detailScreen';
 import CameraScreen from './screens/Camera/Camera';
-
-
+import Register from './screens/register/Register';
+import "./global.css"
 //Creo la view del home
+
+
+
 function HomeScreen() {
   
+
   const navigate =useNavigation()
   return (
-    <View style={styles.container}>
+    <View style={styles.container} className='bg-red-600'>
          <Text style={styles.text}>Hola Mundo!</Text>
         <View style={styles.bubbleCont}>
             <Text style={styles.bubble}>ReactNative</Text>
@@ -21,7 +25,7 @@ function HomeScreen() {
         </View>
         <ContainerPlaylist/>
         <Recomendado/>
-        
+        <Register></Register>
         <Button title='Take Photo' onPress={()=>navigate.navigate("Camera")}></Button>
     </View>
   )
@@ -48,6 +52,7 @@ function RootStack() {
 
 //Envuelvo app en el proveedor y pongo las rutas a renderizar
 export default function App() {
+  
   return (
     //Proveedor
     <NavigationContainer>
